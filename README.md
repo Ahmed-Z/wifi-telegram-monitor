@@ -1,8 +1,12 @@
 # wifi-telegram-monitor
+This script uses Telegram to notify you about the devices connected to your network.
 
 # Installation
 This program in meant to be running on the PC connected to the network you want to monitor.
-
+[Full blogpost](https://ahmed-z.github.io/the-blog/Monitor-your-network-using-Telegram)
+<p align="center">
+<img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/wifi-telegram-bot-final-product.jpg" style="height:600px;align:center">
+</p>
 `git clone https://github.com/Ahmed-Z/wifi-telegram-monitor`<br>
 `cd wifi-telegram-monitor` <br><br>
 After downloading you have to install dependencies:<br>
