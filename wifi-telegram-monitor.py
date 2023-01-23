@@ -79,7 +79,7 @@ def showall_command(update, context):
         mac_address = host[1].src
         mac_vendor = get_mac_vendor(mac_address).strip()
         ip_address = host[1].psrc
-        msg += "{} ({} - {})\n".format(mac_vendor, ip_address, mac_address)
+        msg += "[+] {} ({} - {})\n".format(mac_vendor, ip_address, mac_address)
     context.bot.send_message(chat_id=CHAT_ID, text=msg)
 
 
