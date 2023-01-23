@@ -20,7 +20,7 @@ You need to create `conf.json` file containing the following config.
     "TOKEN": YOUR_TELEGRAM_TOKEN,   //str
     "CHAT_ID": YOUR_USER_CHAT_ID,   //str
     "NETWORK": NETWORK_TO_MONITOR,  //str: "192.168.1.0/24"
-    "INTERVAL": SCAN_NETWORK_INTERVAL  //str: 60
+    "INTERVAL": SCAN_NETWORK_INTERVAL  //int: 60
 }
 ```
 
