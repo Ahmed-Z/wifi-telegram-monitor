@@ -4,24 +4,31 @@ import json
 import time
 import requests
 
-def get_mac_vendor(mac):    
+
+def get_mac_vendor(mac):
     """
-    This function gets the mac address vendor by reading it from a file.
+    This function takes in a MAC address as a string and returns the vendor of that address.
+    If the vendor cannot be determined, the function returns 'Unknown'.
     :param mac: the mac address in question
     :return: the vendor name or 'Unknown' if not found
     """
     url = "https://api.macvendors.com/" + mac
     r = requests.get(url)
+    # Check if the API call is successful (status code 200)
     if r.status_code == 200:
         return r.text
-    mac = mac.upper().replace(':', '')[0:6]  # format the mac address
+    # format the mac address
+    mac = mac.upper().replace(':', '')[0:6]
     try:
+        # open the local file to search for the mac address
         with open("mac-vendor.txt", "r", encoding='utf-8') as f:
             for line in f:
                 if mac in line:
+                    # return the vendor name after the mac address in the file
                     return line[7:]
     except FileNotFoundError:
         exit("Error: mac-vendor.txt file not found.")
+    # if mac address is not found in the file or file not found
     return 'Unknown'
 
 
@@ -44,7 +51,7 @@ def start_command(update, context):
             ip_address = host[1].psrc
             if mac_address not in connected_hosts:
                 msg = "New device connected: {} ({} - {})".format(
-                    mac_vendor, ip_address,mac_address)
+                    mac_vendor, ip_address, mac_address)
                 context.bot.send_message(chat_id=CHAT_ID, text=msg)
             connected_hosts[mac_address] = (mac_vendor, ip_address)
         # check for disconnected devices
