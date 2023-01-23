@@ -106,10 +106,11 @@ def start_bot():
     print("[+] BOT has started")
 
 
-with open('auth.json') as f:
-    auth = json.load(f)
-    TOKEN = auth["TOKEN"]
-    CHAT_ID = auth["CHAT_ID"]
-    NETWORK = "192.168.1.0/24"
+with open('conf.json') as f:
+    conf = json.load(f)
+    TOKEN = conf["TOKEN"]
+    CHAT_ID = conf["CHAT_ID"]
+    NETWORK = conf["NETWORK"]
+    INTERVAL = conf["INTERVAL"]
 
 start_bot()
